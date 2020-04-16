@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+      <title>Bienvenido Tutor</title>
+  
+    </head>
+  </head>
+  <body>
+
+    <div class="container">
+      <form>
+      <center><h1>Sponsor Tutor Login</h1></center>
+      <h1><input type="email" id="mail" placeholder="Email " class="form-control my-3"></h1>
+      <input type="password" id="contra" placeholder="contraseña "  class="form-control my-3">
+      <center><button class="btn btn-info" id="button_log" type="button" onclick="acceso()">Continuar</button></center>
+      <br>
+      <center><a href="registroTutor.html" class="btn btn-outline-danger" role="button" aria-pressed="true" >Registrarme</a></center>
+      
+      </form>
+    </div>
+
+    <script src="app.js"></script>
+    
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA5oHYpjMIRzJQckLEn7TX2UfBPxn_QCPw",
+    authDomain: "basesponsor.firebaseapp.com",
+    databaseURL: "https://basesponsor.firebaseio.com",
+    projectId: "basesponsor",
+    storageBucket: "basesponsor.appspot.com",
+    messagingSenderId: "319306028795",
+    appId: "1:319306028795:web:bc6312cfac233865e3425e",
+    measurementId: "G-HD6S0XLH5N"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      var displayName = user.displayName;
+      var email = user.email;
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+      var uid = user.uid;
+      var providerData = user.providerData;
+      console.log(user.email);
+      alert("Bienvenido usuario: " +user.email);
+
+      window.open("logueadoTutor.html");
+      // ...
+      
+    } else {
+      // User is signed out.
+      alert("NO Logueado");
+      // ...
+    }
+  });
+</script>  
+
+</body>
+</html>
